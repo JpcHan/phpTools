@@ -1,4 +1,44 @@
 <?php
+####### 数组操作 ###############
+/**
+ * 二维数组根据某key排序
+ * @date 2017/01/18 11:00
+ * @apply 数组操作
+ *
+ * @param array $array 需要操作的数组
+ * @param string $key 要排序的字段
+ * @param string $order 升序还是降序，默认asc升序，desc为降序
+ * @return array 返回排好序的数组
+ */
+function arraySortByKey($array,$key,$order="asc"){
+	$arr_nums=$arr=array();
+
+        foreach($array as $k=>$v){
+
+            $arr_nums[$k]=$v[$key];
+
+        }
+
+        if($order=='asc'){
+
+            asort($arr_nums);
+
+        }else{
+
+            arsort($arr_nums);
+
+        }
+
+        foreach($arr_nums as $k=>$v){
+
+            $arr[]=$array[$k];
+
+        }
+
+        return $arr;
+}
+######### end 数组操作 #####################
+
 /**
  * 将给定值与目标值项比较，以决定是否输出checked="checked"字符串
  * @date 2016/01/12 11:26
